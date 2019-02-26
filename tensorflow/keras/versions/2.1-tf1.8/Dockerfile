@@ -7,6 +7,9 @@ FROM pottava/tensorflow:1.8-note
 
 ENV KERAS_VERSION=2.1.6
 
+
+RUN pip uninstall numpy -y
+
 RUN pip install --ignore-installed --upgrade "keras == ${KERAS_VERSION}" \
     && pip install captcha matplotlib matplotlib pydot \
     && apk add --no-cache -u graphviz \
