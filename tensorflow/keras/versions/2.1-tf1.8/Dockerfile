@@ -8,6 +8,8 @@ FROM pottava/tensorflow:1.8-note
 ENV KERAS_VERSION=2.1.6
 
 RUN pip install --ignore-installed --upgrade "keras == ${KERAS_VERSION}" \
+    && pip install captcha matplotlib matplotlib pydot \
+    && apk add --no-cache -u graphviz \
     && find / -depth -type d -name tests -exec rm -rf {} \; \
     && find / -depth -type d -name \__pycache__ -exec rm -rf {} \; \
     && rm -rf /root/.cache
